@@ -1,0 +1,39 @@
+{
+  "name": "dify-client-plus",
+  "version": "1.0.1",
+  "description": "This is the Node.js SDK for the Dify.AI API, which allows you to easily integrate Dify.AI into your Node.js applications.",
+  "main": "index.js",
+  "type": "module",
+  "types": "index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marsDes/dify-client-plus"
+  },
+  "keywords": [
+    "Dify",
+    "Dify.AI",
+    "LLM"
+  ],
+  "author": "Mars",
+  "contributors": [
+    "<Mars> <<3586649@qq.com>> (https://github.com/marsDes)"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
+  },
+  "dependencies": {
+    "axios": "^1.7.9"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0"
+  }
+}
