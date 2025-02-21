@@ -52,7 +52,7 @@ export const routes = {
   },
   getSuggested: {
     method: "GET",
-    url: (message_id) => `/messages/${message_id}/suggested-questions`,
+    url: (message_id) => `/messages/${message_id}/suggested`,
   },
   stopChat: {
     method: "POST",
