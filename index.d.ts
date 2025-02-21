@@ -26,16 +26,20 @@ export declare class DifyClient {
     params?: Params,
     stream?: boolean,
     headerParams?: HeaderParams
-  ): Promise<any>;  
+  ): Promise<any>;
 
   messageFeedback(message_id: string, rating: number, user: User): Promise<any>;
 
   getApplicationParameters(user: User): Promise<any>;
-
+  getMeta(user: User): Promise<any>;
+  getInfo(user: User): Promise<any>;
   fileUpload(data: FormData): Promise<any>;
+  aduioToText(data: FormData): Promise<any>;
+  textToAudio(data: FormData): Promise<any>;
 }
 
 export declare class CompletionClient extends DifyClient {
+  checkWorkflowStatus(workflow_id: string, user: User): Promise<any>;
   createCompletionMessage(
     inputs: any,
     user: User,
@@ -63,7 +67,9 @@ export declare class ChatClient extends DifyClient {
 
   getConversations(user: User, first_id?: string | null, limit?: number | null, pinned?: boolean | null): Promise<any>;
 
-  renameConversation(conversation_id: string, name: string, user: User): Promise<any>;
-
+  renameConversation(conversation_id: string, name: string, user: User, auto_generate: boolean): Promise<any>;
   deleteConversation(conversation_id: string, user: User): Promise<any>;
+  getSuggested(message_id_id: string, user: User): Promise<any>;
+
+  stopChat(task_id: string, user: User): Promise<any>;
 }

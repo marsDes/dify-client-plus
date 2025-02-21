@@ -51,8 +51,8 @@ export const routes = {
     url: () => `/text-to-audio`,
   },
   getSuggested: {
-    method: "POST",
-    url: (message_id) => `/messages/${message_id}/feedbacks`,
+    method: "GET",
+    url: (message_id) => `/messages/${message_id}/suggested-questions`,
   },
   stopChat: {
     method: "POST",
