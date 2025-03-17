@@ -56,7 +56,7 @@ export const routes = {
   },
   stopChat: {
     method: "POST",
-    url: (task_id) => `/chat-message/${task_id}/stop`,
+    url: (task_id) => `/chat-messages/${task_id}/stop`,
   },
   runWorkflow: {
     method: "POST",
