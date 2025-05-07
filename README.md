@@ -73,7 +73,14 @@ Replace 'your-api-key-here' with your actual Dify API key.Replace 'your-app-id-h
 - [x] 语音转文字 aduioToText
 - [x] 文字转语音 textToAudio
 - [x] 获取应用Meta信息 getMeta
-- [] ~~completion-messages~~
+- [x] ~~completion-messages~~
+- [x] 获取标注列表 getAnnotations
+- [x] 创建标注 createAnnotation
+- [x] 更新标注 updateAnnotation
+- [x] 删除标注 deleteAnnotation
+- [x] 标注回复初始设置 replyAnnotation
+- [x] 查询标注回复初始设置任务状态 checkAnnotation
+
 
 ### ChatFlow
 - [x] 执行 workflow runWorkflow

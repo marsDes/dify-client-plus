@@ -74,6 +74,30 @@ export const routes = {
     method: "GET",
     url: () => `/workflows/logs`,
   },
+  getAnnotations: {
+    method: "GET",
+    url: () => `/apps/annotations`,
+  },
+  createAnnotation: {
+    method: "POST",
+    url: '/apps/annotations',
+  },
+  updateAnnotation: {
+    method: "PUT",
+    url: (annotation_id) => `/apps/annotations/${annotation_id}`,
+  },
+  deleteAnnotation: {
+    method: "DELETE",
+    url: (annotation_id) => `/apps/annotations/${annotation_id}`,
+  },
+  replyAnnotation: {
+    method: "POST",
+    url: (action) => `/apps/annotation-reply/${action}`,
+  },
+  checkAnnotation: {
+    method: "GET",
+    url: (action, job_id) => `/apps/annotation-reply/${action}/status/${job_id}`,
+  },
 };
 
 export class DifyClient {
@@ -335,6 +359,51 @@ export class ChatClient extends DifyClient {
       routes.getMeta.url(),
       null,
       params
+    );
+  }
+  getAnnotations(first_id = null, limit = null,) {
+    const params = { first_id, limit };
+    return this.sendRequest(
+      routes.getAnnotations.method,
+      routes.getAnnotations.url(),
+      null,
+      params
+    );
+  }
+  createAnnotation(question, answer) {
+    return this.sendRequest(
+      routes.createAnnotation.method,
+      routes.createAnnotation.url(),
+      { question, answer }
+    );
+  }
+  updateAnnotation(annotation_id, question, answer) {
+    return this.sendRequest(
+      routes.updateAnnotation.method,
+      routes.updateAnnotation.url(annotation_id),
+      { question, answer }
+    );
+  }
+  deleteAnnotation(annotation_id) {
+    return this.sendRequest(
+      routes.deleteAnnotation.method,
+      routes.deleteAnnotation.url(annotation_id),
+      null
+    );
+  }
+  replyAnnotation(action, embedding_model_provider, embedding_model, score_threshold) {
+    return this.sendRequest(
+      routes.replyAnnotation.method,
+      routes.replyAnnotation.url(action),
+      null,
+      { embedding_model_provider, embedding_model, score_threshold }
+    );
+  }
+  checkAnnotation(action, job_id) {
+    return this.sendRequest(
+      routes.checkAnnotation.method,
+      routes.checkAnnotation.url(action, job_id),
+      null
     );
   }
 }
